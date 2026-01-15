@@ -15,4 +15,4 @@ Tools:
 - Manual testing techniques
 - Jira-style bug reports
 - SQL (SELECT, JOIN)
-- Selenium / Playwright (basic)
+- Selenium
