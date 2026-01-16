@@ -11,7 +11,6 @@ This module contains UI automation tests for the Cafe Daria website.
 ## Project Structure
 ui-automation/
 - tests/ — UI test cases
-- pages/ — Page Object Model classes
 - conftest.py — test configuration and fixtures
 - requirements.txt — project dependencies
 

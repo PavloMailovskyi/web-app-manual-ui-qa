@@ -5,9 +5,9 @@
 ## Smoke Checklists ##
 
 Home page opens <br>
-Navigation menu works <br>
-Menu section opens <br>
-Product can be added to cart <br>
+Main navigation menu is accessible <br>
+Menu / Products section opens <br>
+User can initiate add-to-cart flow <br>
 Checkout page opens <br>
 
 ---
@@ -17,15 +17,15 @@ Checkout page opens <br>
 Navigation works correctly <br>
 Product list displays properly <br>
 Cart functionality stable <br>
-Checkout validation works <br>
-UI layout unchanged <br>
+Checkout or authentication validation works <br>
+Core UI layout remains consistent <br>
 
 ---
 
 ## UI Checklist ##
 
 Text readable on all screens <br>
-Buttons visible and clickable <br>
+Buttons are visible and clickable <br>
 Images load correctly <br>
 No overlapping elements <br>
 Responsive layout works.
