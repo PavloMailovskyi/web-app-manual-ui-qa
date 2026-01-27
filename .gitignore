@@ -1,23 +1,23 @@
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.env
-*.venv
-env/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual env
 venv/
-ENV/
+.env/
+.env.*
 
-# PyCharm
+# pytest
+.cache/
+html-report/
+reports/
+
+# IDE
 .idea/
-
-# VSCode
 .vscode/
 
-# Logs
-*.log
-
-# OS files
+# Mac
 .DS_Store
-Thumbs.db

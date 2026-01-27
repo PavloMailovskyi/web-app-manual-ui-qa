@@ -1,33 +1,37 @@
 import pytest
 from pages.home_page import HomePage
-from pages.menu_page import MenuPage
+from pages.catalog_page import CatalogPage
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-def test_open_home_page(browser):
+def test_home_page(browser):
     home = HomePage(browser)
     home.open()
-    assert "Cafedaria" in browser.title
+    # Проверяем URL
+    assert browser.current_url == HomePage.URL, "Not on home page"
+    # Проверяем, что шапка видна
+    header = WebDriverWait(browser, 5).until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, "header.page-header"))
+    )
+    assert header.is_displayed(), "Header is not visible on home page"
 
-def test_navigate_to_menu(browser):
+def test_navigate_to_catalog(browser):
     home = HomePage(browser)
     home.open()
     home.click_menu()
-    assert "menu" in browser.current_url.lower()
+    WebDriverWait(browser, 5).until(lambda d: "/catalog" in d.current_url)
+    assert "/catalog" in browser.current_url, "Navigation to catalog page failed"
 
 def test_add_product_to_cart(browser):
-    home = HomePage(browser)
-    home.open()
-    home.click_menu()
-    menu = MenuPage(browser)
-    menu.add_first_product_to_cart()
-    cart_count = browser.find_element_by_class_name("cart-count")
-    assert int(cart_count.text) > 0
+    catalog = CatalogPage(browser)
+    catalog.open()
+    assert "/catalog" in browser.current_url, "Not on catalog page"
+    catalog.add_first_product_to_cart()
 
 def test_add_multiple_products_to_cart(browser):
-    home = HomePage(browser)
-    home.open()
-    home.click_menu()
-    menu = MenuPage(browser)
-    menu.add_first_product_to_cart()
-    menu.add_first_product_to_cart()
-    cart_count = browser.find_element_by_class_name("cart-count")
-    assert int(cart_count.text) >= 2
+    catalog = CatalogPage(browser)
+    catalog.open()
+    assert "/catalog" in browser.current_url, "Not on catalog page"
+    catalog.add_multiple_products_to_cart(count=2)
+
